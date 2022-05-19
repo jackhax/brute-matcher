@@ -3,8 +3,7 @@ from random import randint
 import pymysql.cursors
 from tabulate import tabulate
 
-name_id = {
-    'adn512': 'M. Adnan Jakati',
+name_id = { 
     'nir451': 'Niranjana Kumaravel',
     'suc785': 'Suchit KumarGS',
     'abh145': 'U S Abhiram',
@@ -13,7 +12,8 @@ name_id = {
     'ada025': 'Adarsh Shanbhag',
     'pra852': 'Prateek Jain',
     'dil987': 'Abburi Dileep',
-    'san951': 'Sai Sanath Erram'
+    'san951': 'Sai Sanath Erram',
+    'adn512': 'M. Adnan Jakati'
 }
 
 
@@ -27,7 +27,7 @@ def connect(host, user, passw):
 
 
 def match(id):
-    db = connect('brute-matcher.cbcy6xtxnhv3.ap-south-1.rds.amazonaws.com', 'admin', '786jak786')
+    db = connect('brute-matcher.cbcy6xtxnhv3.ap-south-1.rds.amazonaws.com', 'admin', '************')
     cursor = db.cursor()
     cursor.execute('use team')
     cursor.execute('select * from match_details where introduced_by = "TBD"')
@@ -75,7 +75,7 @@ def lambda_handler(event, context):
             }
         body = f"Matched with: {match(id)}"
     elif action == 'listall':
-        db = connect('brute-matcher.cbcy6xtxnhv3.ap-south-1.rds.amazonaws.com', 'admin', '786jak786')
+        db = connect('brute-matcher.cbcy6xtxnhv3.ap-south-1.rds.amazonaws.com', 'admin', '************')
         cursor = db.cursor()
         cursor.execute('use team')
         cursor.execute('select * from match_details')
