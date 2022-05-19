@@ -15,13 +15,13 @@ async function getData(url,element){
     return data
 }
 
-getData(`https://y7kapglool.execute-api.ap-south-1.amazonaws.com/brute-matcher?action=listall&id=dee412`,details)
+getData(`https://y7kapglool.execute-api.ap-south-1.amazonaws.com/brute-matcher?action=listall`,details)
 
 async function match(){
   let mem_id = document.getElementById('mem_id')
   mem_id = mem_id.value;
   console.log(mem_id)
   await getData(`https://y7kapglool.execute-api.ap-south-1.amazonaws.com/brute-matcher?action=match&id=${mem_id}`,document.getElementById('res'))
-  getData(`https://y7kapglool.execute-api.ap-south-1.amazonaws.com/brute-matcher?action=listall&id=dee412`,details)
+  getData(`https://y7kapglool.execute-api.ap-south-1.amazonaws.com/brute-matcher?action=listall`,details)
 
 }
